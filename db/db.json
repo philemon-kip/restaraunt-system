@@ -36,6 +36,61 @@
       "email": "cab@gmail.com",
       "password": "1234567"
     }
+  ],
+  "restaurant": [
+    {
+      "id": "1",
+      "name": "McDonald's",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "2",
+      "name": "Burger King",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "3",
+      "name": "Wendy's",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "4",
+      "name": "Taco Bell",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "name": "KFC",
+      "address": "1234 Main road",
+      "contact": "1234567890",
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "name": "Subway",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "7",
+      "name": "Pizza Hut",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "8",
+      "name": "Domino's",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    },
+    {
+      "id": "9",
+      "name": "Papa John's",
+      "contact": "1234567890",
+      "address": "1234 Main St"
+    }
   ]
-  
 }

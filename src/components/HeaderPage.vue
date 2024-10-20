@@ -6,7 +6,6 @@
     <div class="nav-links">
       <router-link to="/">Home</router-link>
       <router-link to="/add">Add Restaurant</router-link>
-      <router-link to="/update">Update Restaurant</router-link>
       <a href="#" @click.prevent="logout">Logout</a>
     </div>
   </div>
