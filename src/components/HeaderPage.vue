@@ -4,9 +4,9 @@
       <img class="logo" src="../assets/logo.png" alt="logo">
     </div>
     <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Add Restaurant</a>
-      <a href="#">Update Restaurant</a>
+      <router-link to="/">Home</router-link>
+      <router-link to="/add">Add Restaurant</router-link>
+      <router-link to="/update">Update Restaurant</router-link>
       <a href="#" @click.prevent="logout">Logout</a>
     </div>
   </div>
