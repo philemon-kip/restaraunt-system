@@ -1,14 +1,13 @@
 <template>
-  <div class="signup-container">
+  <div class="login-container">
     <img class="logo" src="../assets/logo.png" alt="logo">
-    <h1>Sign Up</h1>
-    <form class="register" @submit.prevent="signUp">
-      <input type="text" v-model="name" placeholder="Enter Name" required>
+    <h1>Login</h1>
+    <form class="login-form" @submit.prevent="login">
       <input type="email" v-model="email" placeholder="Enter Email" required>
       <input type="password" v-model="password" placeholder="Enter Password" required>
-      <button type="submit">Sign Up</button>
-      <p class="login-link">
-        Already have an account? <router-link to="/login">Login</router-link>
+      <button type="submit" >Login</button>
+      <p class="signup-link">
+        Don't have an account? <router-link to="/sign-up">Sign Up</router-link>
       </p>
     </form>
   </div>
@@ -18,36 +17,34 @@
 import axios from 'axios';
 
 export default {
-  name: 'SignUp',
+  name: 'LoginPage',
   data() {
     return {
-      name: '',
       email: '',
       password: ''
     }
   },
   methods: {
-    async signUp() {
+    async login() {
       try {
-        const result = await axios.post('http://localhost:3000/users', {
-          name: this.name,
-          email: this.email,
-          password: this.password
-        });
+        const response = await axios.get(`http://localhost:3000/users?email=${this.email}&password=${this.password}`);
         
-        if (result.status === 201) {
-          localStorage.setItem('user-info', JSON.stringify(result.data));
+        if (response.status == 200 && response.data.length > 0) {
+          localStorage.setItem('user-info', JSON.stringify(response.data[0]));
           this.$router.push({ name: 'HomePage' });
+        } else {
+          // Handle unsuccessful login
+          console.error('Login failed: No token received');
         }
       } catch (error) {
-        console.error('Signup failed:', error);
-        // Handle error (e.g., show error message to user)
+        console.error('Login error:', error);
+        // Handle login error (e.g., show error message to user)
       }
     }
   },
   mounted() {
-    const user = localStorage.getItem('user-info');
-    if (user) {
+    const userToken = localStorage.getItem('user-info');
+    if (userToken) {
       this.$router.push({ name: 'HomePage' });
     }
   }
@@ -55,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.signup-container {
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +80,7 @@ h1 {
   font-weight: 700;
 }
 
-.register {
+.login-form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -130,27 +127,27 @@ button:hover {
   box-shadow: 0 5px 15px rgba(92, 124, 250, 0.4);
 }
 
-.login-link {
+.signup-link {
   margin-top: 20px;
   text-align: center;
   font-size: 0.9rem;
   color: #666;
 }
 
-.login-link a {
+.signup-link a {
   color: #6e8efb;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.login-link a:hover {
+.signup-link a:hover {
   color: #5c7cfa;
   text-decoration: underline;
 }
 
 @media (max-width: 480px) {
-  .register {
+  .login-form {
     padding: 30px;
   }
 

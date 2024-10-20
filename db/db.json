@@ -23,6 +23,19 @@
       "name": "junior",
       "email": "junior@gmail.com",
       "password": "1234567"
+    },
+    {
+      "id": "ad9e",
+      "name": "carl",
+      "email": "carl@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "id": "b14c",
+      "name": "cab",
+      "email": "cab@gmail.com",
+      "password": "1234567"
     }
   ]
+  
 }
